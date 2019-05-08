@@ -3,6 +3,7 @@ import tkinter as tk
 # version 0.5
 # made with python 3.7.3
 # initializing variables
+# made by Commz
 HEIGHT = 550
 WIDTH = 400
 cur_num = " "
@@ -10,11 +11,20 @@ cur_num2 = " "
 store_num = " "
 op = " "
 final_num = " "
+point_used = False
 
 def num(numero):
     global cur_num
     global cur_num2
     cur_num = cur_num + numero
+    screen["text"] = cur_num
+    cur_num2 = cur_num
+
+def point_op():
+    global cur_num
+    global cur_num2
+    global point_used
+    cur_num = cur_num + "."
     screen["text"] = cur_num
     cur_num2 = cur_num
 
@@ -36,42 +46,51 @@ def add_op():
     global store_num
     global cur_num
     global op
+    global point_used
     store_num = cur_num
     op = 1
     screen["text"] = " "
     cur_num = " "
+    point_used = False
 
 def sub_op():
     global store_num
     global cur_num
     global op
+    global point_used
     store_num = cur_num
     op = 2
     screen["text"] = " "
     cur_num = " "
+    point_used = False
 
 def mult_op():
     global store_num
     global cur_num
     global op
+    global point_used
     store_num = cur_num
     op = 3
     screen["text"] = " "
     cur_num = " "
+    point_used = False
 
 def div_op():
     global store_num
     global cur_num
     global op
+    global point_used
     store_num = cur_num
     op = 4
     screen["text"] = " "
     cur_num = " "
+    point_used = False
 
 def final_op():
     global store_num
     global cur_num2
     global final_num
+    global cur_num
     int_store_num = float(store_num)
     int_cur_num2 = float(cur_num2)
 
@@ -91,6 +110,8 @@ def final_op():
         final_num = int_store_num / int_cur_num2
         screen["text"] = final_num
 
+    cur_num = final_num
+
 root = tk.Tk()
 
 root.title("Calculator")
@@ -108,8 +129,11 @@ button0.place(relx=0, rely=0.8, relwidth=0.75, relheight=0.2)
 # button for the number 0
 
 button_Equal = tk.Button(frame, text="=", bg="lightgrey", fg="black", font=40, command= final_op)
-button_Equal.place(relx=0.75, rely=0, relwidth=0.25, relheight=0.1)
+button_Equal.place(relx=0.75, rely=0, relwidth=0.125, relheight=0.1)
 # button for making result appear on screen
+
+button_Point = tk.Button(frame, text=".", bg="lightgrey", fg="black", font=40, command= point_op)
+button_Point.place(relx=0.875, rely=0, relwidth=0.125, relheight=0.1)
 
 button_Remove = tk.Button(frame, text="DEL", bg="lightgrey", fg="black", font=40, command= del_op)
 button_Remove.place(relx=0.75, rely=0.1, relwidth=0.25, relheight=0.1)
