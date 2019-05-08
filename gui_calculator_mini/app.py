@@ -1,6 +1,6 @@
 import tkinter as tk
 
-# version 0.5
+# version 1.0
 # made with python 3.7.3
 # initializing variables
 # made by Commz
