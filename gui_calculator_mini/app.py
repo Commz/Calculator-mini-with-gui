@@ -24,9 +24,15 @@ def point_op():
     global cur_num
     global cur_num2
     global point_used
-    cur_num = cur_num + "."
-    screen["text"] = cur_num
-    cur_num2 = cur_num
+
+    if point_used == False:
+        cur_num = cur_num + "."
+        screen["text"] = cur_num
+        cur_num2 = cur_num
+        point_used = True
+
+    else:
+        pass
 
 def del_op():
     global cur_num
