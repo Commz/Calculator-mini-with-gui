@@ -2,12 +2,11 @@ import tkinter as tk
 
 # version 1.0
 # made with python 3.7.3
-# initializing variables
 # made by Commz
+
 HEIGHT = 550
 WIDTH = 400
 cur_num = " "
-cur_num2 = " "
 store_num = " "
 op = " "
 final_num = " "
@@ -18,7 +17,6 @@ def num(numero):
     global cur_num2
     cur_num = cur_num + numero
     screen["text"] = cur_num
-    cur_num2 = cur_num
 
 def point_op():
     global cur_num
@@ -28,7 +26,6 @@ def point_op():
     if point_used == False:
         cur_num = cur_num + "."
         screen["text"] = cur_num
-        cur_num2 = cur_num
         point_used = True
 
     else:
@@ -40,13 +37,14 @@ def del_op():
     global store_num
     global op
     global final_num
+    global point_used
 
     cur_num = " "
-    cur_num2 = " "
     store_num = " "
     op = " "
     final_num = " "
     screen["text"] = " "
+    point_used = False
 
 def add_op():
     global store_num
@@ -94,26 +92,25 @@ def div_op():
 
 def final_op():
     global store_num
-    global cur_num2
     global final_num
     global cur_num
     int_store_num = float(store_num)
-    int_cur_num2 = float(cur_num2)
+    int_cur_num = float(cur_num)
 
     if op == 1:
-        final_num = int_store_num + int_cur_num2
+        final_num = int_store_num + int_cur_num
         screen["text"] = final_num
 
     elif op == 2:
-        final_num = int_store_num - int_cur_num2
+        final_num = int_store_num - int_cur_num
         screen["text"] = final_num
 
     elif op == 3:
-        final_num = int_store_num * int_cur_num2
+        final_num = int_store_num * int_cur_num
         screen["text"] = final_num
 
     elif op == 4:
-        final_num = int_store_num / int_cur_num2
+        final_num = int_store_num / int_cur_num
         screen["text"] = final_num
 
     cur_num = final_num
@@ -165,7 +162,7 @@ button1 = tk.Button(frame, text="1", bg="lightgrey", fg="black", font=40, comman
 button1.place(relx=0, rely=0.6, relwidth=0.25, relheight=0.2)
 # button for the number 1
 
-button2 = tk.Button(frame, text="2", bg="lightgrey", fg="black", font=40, command=lambda: num("1"))
+button2 = tk.Button(frame, text="2", bg="lightgrey", fg="black", font=40, command=lambda: num("2"))
 button2.place(relx=0.25, rely=0.6, relwidth=0.25, relheight=0.2)
 #button for the number 2
 
