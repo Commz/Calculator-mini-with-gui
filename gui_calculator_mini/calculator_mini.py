@@ -110,10 +110,15 @@ def final_op():
         screen["text"] = final_num
 
     elif op == 4:
-        final_num = int_store_num / int_cur_num
-        screen["text"] = final_num
+        if int_cur_num == 0:
+            screen["text"] = "Epänumero"
 
-    cur_num = final_num
+        else:
+            final_num = int_store_num / int_cur_num
+            screen["text"] = final_num
+
+    store_num = final_num
+    str(cur_num)
 
 root = tk.Tk()
 
