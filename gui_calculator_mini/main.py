@@ -5,7 +5,7 @@ from kivy.core.window import Window
 from kivy.config import Config
 from kivy.core.window import Window
 
-Window.size = (1080//2, 2220//2)
+#Window.size = (1080//2, 2220//2)
 
 Window.clearcolor = (1, 1, 1, 1)
 appendCalcStr = ""
